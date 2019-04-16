@@ -2,7 +2,7 @@
 
 ## About
 
-Shows the most likely sequence of genes given a FASTA sequence of DNA nucleotide. Hidden Markov Model implementation using Viterbi recurrence relations.
+Shows the most likely sequence of DNA given a FASTA sequence of DNA nucleotide. Hidden Markov Model implementation using Viterbi recurrence relations.
 
 ## Installation
 
