@@ -77,10 +77,11 @@ def iteration(letter):
 		idx = idx + 1
 	np.copyto(prev_state, current_state)
 
+def getVal(num):
+	return 'S' + str(num + 1)
 
 def main():
 	sequence = "ATCCGAACCGTACCAGGTCAC"
-	print("sys argv", sys.argv[1])
 	try:
 		filename = sys.argv[1]
 		sequence = readfile(filename)
@@ -89,14 +90,15 @@ def main():
 
 		first_letter = sequence[0].upper()
 		initialization(first_letter)
-		likely_sequence.append(current_state.argmax() + 1)
+		likely_sequence.append(getVal(current_state.argmax()))
 
 		# remove first letter from sequence
 		sequence = sequence[1:]
 		for letter in sequence:
 			letter = letter.upper()
 			iteration(letter)
-			likely_sequence.append(current_state.argmax() + 1)
+			val = getVal(current_state.argmax())
+			likely_sequence.append(val)
 
 		print("the likely_sequence is: ", likely_sequence)
 	except IOError:
